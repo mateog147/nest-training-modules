@@ -9,4 +9,9 @@ export class ContactController {
   get(): string {
     return this.contactService.getMessage();
   }
+
+  @Get('express/message')
+  get2(): string {
+    return this.contactService.getMessage();
+  }
 }
