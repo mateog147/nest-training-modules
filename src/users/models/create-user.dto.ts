@@ -1,10 +1,14 @@
-import { User } from './user';
+import { IsAlpha, IsEmail, IsNotEmpty } from 'class-validator';
+import { User } from '../interfaces/user';
 export class CreateUserDto implements User {
-  uuid: string;
+  uuid?: string;
+  @IsAlpha()
+  @IsNotEmpty()
   name: string;
+  @IsAlpha()
+  @IsNotEmpty()
   lastName: string;
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
-  constructor(data: User) {
-    this.uuid = data.uuid ?? '';
-  }
 }
