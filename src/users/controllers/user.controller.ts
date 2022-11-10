@@ -1,3 +1,4 @@
+import { TransformInterceptor } from './../../interceptors/transform.interceptor';
 import {
   BadRequestException,
   Body,
@@ -11,6 +12,7 @@ import {
   Post,
   Put,
   UseGuards,
+  UseInterceptors,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -21,6 +23,7 @@ import { PatchUserDto } from '../models/patch-user.dto';
 import { AuthGuard } from 'src/guards/auth.guard';
 
 @Controller('user')
+@UseInterceptors(TransformInterceptor)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
